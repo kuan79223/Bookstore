@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<style>
+    .table-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .address-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .address-item {
+        display: flex;
+        align-items: center;
+    }
+
+    .address-item label {
+        margin-right: 10px;
+    }
+
+    .total-container {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+    }
+
+    .total-label {
+        margin-right: 10px;
+    }
+
+    .button-container {
+        display: flex;
+
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .cell-width {
+        width: 300px;
+    }
+</style>
+
+<div class="table-container">
+    <table 訂單>
+        <tr>
+            <td></td>
+            <td>書籍</td>
+            <td>價格</td>
+            <td>數量</td>
+        </tr>
+
+        <tr>
+            <td class="cell-width"><img src="/static/{{ cover }}" alt="書籍封面" style="width: 200px; height: auto;"></td>
+            <td class="cell-width">{{ name }}</td>
+            <td class="cell-width">{{ price }}</td>
+            <form action="/" , method="post">
+                <td class="cell-width"><input type=" text" name="amount" value="1">
+                </td>
+        </tr>
+    </table>
+</div>
+
+<div class="address-container">
+
+    <div class="address-item">
+        <label>送貨地址: </label>
+        <input type=" text" name="address" style="width: 700px;" required>
+    </div>
+    <div class="address-item">
+        <label>備註: </label>
+        <textarea type="text" name="remark" rows="4" cols="100" maxlength="100" , placeholder="限定50字"></textarea>
+    </div>
+
+</div>
+
+<div class="button-container">
+    <button type="sumbit">付款</button>
+    </form>
+</div>
+
+{% endblock %}

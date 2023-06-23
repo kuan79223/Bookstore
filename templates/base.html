@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> shop app</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- 建立一個容器大並設定 -->
+    <style>
+        .btn-container-1 {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
+
+        .btn-container-2 {
+            position: fixed;
+            top: 10px;
+            right: 80px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+
+                </li>
+                <div class="btn-container-2">
+                    <form action="/check_order" , method="get">
+                        <button class="btn btn-primary" type="submit">查詢</button>
+                    </form>
+
+                </div>
+
+                <div class="btn-container-1">
+
+                    {% if logged_in %}
+
+                    <form action="/logout" , method="get">
+                        <a class="btn btn-primary" href="{{ url_for('logout') }}">登出</a>
+                    </form>
+                    {% else %}
+                    <form action="/login" , method="post">
+                        <a class="btn btn-primary" href="{{ url_for('login') }}">登入</a>
+                    </form>
+                    {% endif %}
+                </div>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% block body %}
+        {% endblock %}
+    </div>
+
+</body>
+
+</html>

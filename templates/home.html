@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block body %}
+<style>
+    .table-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    td {
+        border: 1px solid black;
+        padding: 5px;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+</style>
+
+<div class="table-container">
+    <table>
+        <tr>
+            <td></td>
+            <td>書籍</td>
+            <td>價格</td>
+            <td>描述</td>
+            <td></td>
+
+        </tr>
+        {% for book in books %}
+        <tr>
+
+            <td><img src="/static/{{ book.cover }}" alt="書籍封面" style="width: 200px; height: auto;"></td>
+            <td style="width: 100px">{{ book.name }}</td>
+            <td style="width: 100px">{{ book.price }}</td>
+            <td style="width: 400px">{{ book.desc }}</td>
+
+            <form action="/index" , method="get">
+                <td>
+                    <button type="submit" name="book_id" value="{{ book.id }}">加入</button>
+                </td>
+            </form>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block body %}
+{% if order_info %}
+{% for order in order_info %}
+<div>
+    <p>書名: {{ order['書名'] }}</p>
+    <p>數量: {{ order['數量'] }}</p>
+    <p>價格: {{ order['價格'] }}</p>
+</div>
+
+<div>
+    <p>地址: {{ order['地址'] }}</p>
+    <p>總額: {{ order['總額'] }}</p>
+    <p>備註: {{ order['備註'] }}</p>
+    <p>訂購時間: {{ order['訂購時間']}}</p>
+</div>
+<hr>
+{% endfor %}
+{% endif %}
+
+{% endblock %}

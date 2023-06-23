@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td {
+        padding: 5px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+</style>
+<p>後台顯示</p>
+
+{% if datas %}
+{% for data in datas %}
+<table class="table">
+    <tr>
+        <td>ID</td>
+        <td>數量</td>
+        <td>地址</td>
+        <td>總額</td>
+        <td>Book ID</td>
+        <td>User ID</td>
+        <td>狀態</td>
+        <td>訂購時間</td>
+        <td>備註</td>
+    </tr>
+
+
+    <tr>
+        <td>{{ data['ID'] }}</td>
+        <td>{{ data['數量'] }}</td>
+        <td style="width: 200px">{{ data['地址'] }}</td>
+        <td>{{ data['總額'] }}</td>
+        <td>{{ data['book_id'] }}</td>
+        <td>{{ data['user_id'] }}</td>
+        <td>{{ data['狀態'] }}</td>
+        <td>{{ data['訂購時間'] }}</td>
+        <td style="width: 300px">{{ data['備註'] }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+{% endif %}

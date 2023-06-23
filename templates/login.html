@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block body %}
+
+登入會員
+<div class="row">
+    <div class="col">
+        <form action="/login" , method="post">
+            <div class="form-row">
+                <div class="col-12 mt-3">
+                    <input type="text" name="account" placeholder="帳戶名稱">
+
+                </div>
+                <div class="col-12 mt-3">
+                    <input type="text" name="email" placeholder="信箱">
+                </div>
+
+                <div class="col-12 mt-3 pt-3">
+                    <button type="submit">確認</button>
+                </div>
+
+            </div>
+        </form>
+
+        <form action="/apply_account" , method="get">
+
+            <button type="submit">加入會員</button>
+        </form>
+
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}
