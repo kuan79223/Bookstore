@@ -376,7 +376,7 @@ if __name__ == '__main__':
     file_handler.setFormatter(logging.Formatter('%(asctime)s [%(levelname)s] %(message)s'))
     app.logger.addHandler(file_handler)
 
-    app.run(host='0,0,0,0', port=5000)
+    app.run(host='0.0.0.0', port=5000)
 
     
     
